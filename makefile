@@ -1,17 +1,21 @@
-CadastroCelulares_1 : CadastroCelulares_1.o
-	@echo "Gerando o arquivo executável"
+CadastroCelulares_1 : CadastroCelulares_1.o interfaces.o cadastro_usuarios.o
+	@echo "Gerando o arquivo executavel"
 	gcc *.o -o CadastroCelulares_1
 
 CadastroCelulares_1.o: CadastroCelulares_1.c
 	@echo "Compilando *.c e gerando os objetos"
 	gcc -c CadastroCelulares_1.c
 
-#funcoes.o: funcoes.c
-#	@echo "Compilando e gerando as funções"
-#	gcc -c funcoes.c
+interfaces.o: interfaces.c
+	@echo "Compilando e gerando as interfaces"
+	gcc -c interfaces.c
+
+cadastro_usuarios.o: cadastro_usuarios.c
+	@echo "Compilar e gerar cadastro_usuarios"
+	gcc -c cadastro_usuarios.c
 
 clean:
-	@echo "Apagando objetos executáveis antigos"
+	@echo "Apagando objetos executaveis antigos"
 	rm -f *.o CadastroCelulares_1
 
 run:

@@ -12,10 +12,12 @@
 
 #include "includes.h"
 #include "cadastro_usuarios.h"
+#include "struct_usuarios.h"
+#include "structs_cadastros.h"
 
 void main()
 {
-
-
-  return;
+    
+    
+    return 0;
 }
