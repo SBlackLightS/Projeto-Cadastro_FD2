@@ -161,4 +161,3 @@ void cadastro_usuarios(Cadastros* usuarios, int* quantidade_usuarios)
   limpa_tela();
 
   return;
-}//cadastro_usuarios

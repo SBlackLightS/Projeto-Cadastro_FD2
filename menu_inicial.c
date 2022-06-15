@@ -18,35 +18,41 @@
 
 void menu_inicial(Cadastros *usuarios)
 {
-    int opcao1;
+  int opcao;
+  int repete;
 
-    printf("Selecione uma op‡Æo:\n");
-    printf("1 - Cadastro\n");
-    printf("2 - Login\n");
+  printf("Selecione uma op‡Æo:\n");
+  printf("1 - Cadastro\n");
+  printf("2 - Login\n");
 
-    scanf("%d", &opcao1);
+  scanf("%d", &opcao);
 
-    do
+  do
+  {
+    repete = 0;
+
+    switch (opcao)
     {
-        switch (opcao1)
-        {
-            case 1:
-                limpa_tela();
-                cadastro_usuarios(usuarios);
-            break;
+      case 1:
+        limpa_tela();
+        cadastro_usuarios(usuarios);
+        repete = 1;
+      break;
 
-            case 2:
-                limpa_tela();
-                login_usuarios(usuarios);
-            break;
+      case 2:
+        limpa_tela();
+        login_usuarios(usuarios);
+      break;
 
-            default:
-                printf("!!! UMA OP€ÇO INVµLIDA FOI SELECIONADA !!!\n");
-                // sleep(2000);
-            break;
-        }
+      default:
+        printf("!!! UMA OPCAO INVALIDA FOI SELECIONADA !!!\n");
+        //sleep(2000);
+        repete = 1;
+      break;
 
-    } while (opcao1 != 1 && opcao1 != 2);
+      }// switch
 
-    return;
+  } while (repete == 1);
+
+  return;
 }
