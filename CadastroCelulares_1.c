@@ -20,10 +20,14 @@
 
 void main()
 {
+  /* Declaracoes: -------------------------------------------------------------- */
+  int quantidade_usuarios = 0;
+  Cadastros* usuarios;
+  /* Declaracoes =============================================================== */
 
-    Cadastros *usuarios;
+  quantidade_usuarios = verifica_arquivo_cadastros(&quantidade_usuarios);
 
-    cadastro_usuarios(usuarios);
-    
-    return 0;
-}
+  menu_inicial(usuarios);
+  
+  return 0;
+}//main
