@@ -1,1 +1,1 @@
-Projeto de Cadastro para Fundamentos de Programa‡Æo 2
+Projeto de Cadastro para Fundamentos de Programacao 2
