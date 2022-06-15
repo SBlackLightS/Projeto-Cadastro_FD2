@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "interfaces.h"
 
-void limpaTela () {
+void limpa_tela () {
   #ifdef _WIN32
     system("cls");
   #elif __linux__

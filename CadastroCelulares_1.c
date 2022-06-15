@@ -10,14 +10,20 @@
  *
  */
 
-#include "includes.h"
+#include "includes_sistema.h"
+#include "menu_inicial.h"
+#include "menu_principal.h"
 #include "cadastro_usuarios.h"
 #include "struct_usuarios.h"
 #include "structs_cadastros.h"
 
+
 void main()
 {
-    
+
+    Cadastros *usuarios;
+
+    cadastro_usuarios(usuarios);
     
     return 0;
 }
