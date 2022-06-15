@@ -18,33 +18,32 @@
 
 typedef struct
 { // 3
-    char nome_chipset[TAM_PADRAO];
-    char gpu[TAM_PADRAO];
-    float frequencia_max;
+  char nome_chipset[TAM_PADRAO];
+  char gpu[TAM_PADRAO];
+  float frequencia_max;
 } Processador;
 
 typedef struct
 { // 2
-    Processador processador[TAM_NOME];
-    int mem_interna;
-    int mem_ram;
+  Processador processador[TAM_NOME];
+  int mem_interna;
+  int mem_ram;
 } Dados_Tecnicos;
 
 typedef struct
 { // 5
-    int id;
-    char nome_celular[TAM_NOME];
-    char nome_marca[TAM_PADRAO];
-    Dados_Tecnicos dados_tecnicos;
-    int capacidade_bateria;
-    float Preco;
+  int id;
+  char nome_celular[TAM_NOME];
+  char nome_marca[TAM_PADRAO];
+  Dados_Tecnicos dados_tecnicos;
+  int capacidade_bateria;
+  float Preco;
 } Celular;
 
 typedef struct
 { // 2
-    char marca[TAM_PADRAO];
-    char **celulares;
+  char marca[TAM_PADRAO];
+  char **celulares;
 } Marca;
-
 
 #endif
