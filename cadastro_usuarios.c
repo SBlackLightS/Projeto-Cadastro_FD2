@@ -10,21 +10,34 @@
  *
  */
 
-#include "includes.h"
+#include "includes_sistema.h"
 #include "cadastro_usuarios.h"
 #include "struct_usuarios.h"
+#include "cripto.h"
 
 Cadastros *cadastro_usuarios(Cadastros *usuarios)
 {
-    /**
-    fgets(nome_usuario, TAM_NOME, stdin);
-    nome_usuario[stdcspn(nome_usuario, "\n")] = '\0';
+    
+    fgets(usuarios->nome_usuario, TAM_NOME, stdin);
+    usuarios->nome_usuario[stdcspn(usuarios->nome_usuario, "\n")] = '\0';
     setbuf(stdin, NULL);
 
     printf("Digite sua senha:");
-    fgets(senha_usuario, PS_USER, stdin);
-    senha_usuario[strcspn(senha_usuario, "\n")] = '\0';
+    fgets(usuarios->senha_usuario, PS_USER, stdin);
+    usuarios->senha_usuario[strcspn(usuarios->senha_usuario, "\n")] = '\0';
     setbuf(stdin, NULL);
-    */
+
+    FILE *arquivo_cadastros = fopen("arquivo_cadastros.dat", "ab");
+
+    cripto(usuarios->nome_usuario);
+    fwrite(usuarios->nome_usuario, sizeof(char), TAM_NOME, arquivo_cadastros);
+
+    cripto(usuarios->senha_usuario);
+    fwrite(usuarios->senha_usuario, sizeof(char), PS_USER, arquivo_cadastros);
+
+    fclose(arquivo_cadastros);
+    
+    limpatela();
+
     return;
 }

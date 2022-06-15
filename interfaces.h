@@ -16,6 +16,6 @@
 /**
  * @brief limpa todos os caracteres da tela do console
  */
-void limpaTela ();
+void limpa_tela ();
 
 #endif

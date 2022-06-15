@@ -13,6 +13,6 @@
 #ifndef CADASTRO_USUARIOS_H
 #define CADASTRO_USUARIOS_H
 
-    Cadastro* cadastro_usuarios(Cadastros nome_usuario[], Cadastros senha_usuario[])
+    Cadastros* cadastro_usuarios(Cadastros *usuarios);
 
 #endif
