@@ -9,6 +9,6 @@
 typedef struct  {
   char nome_usuario[TAM_NOME]; //ate 45
   char senha_usuario[PS_USER]; //ate 15
-}Cadastros;
+}Cadastro;
 
 #endif
