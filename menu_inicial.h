@@ -13,6 +13,6 @@
 #ifndef MENU_INICIAL_H
 #define MENU_INICIAL_H
 
-    void menu_inicial(Cadastros *usuarios);
+void menu_inicial(Cadastros *usuarios);
 
 #endif
