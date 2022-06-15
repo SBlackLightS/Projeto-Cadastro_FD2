@@ -12,11 +12,11 @@
 
 #include "cripto.h"
 
-void criptografa(char *frase)
+void cifra_de_cesar(char *senha, int chave)
 {
-    while (frase != '\0')
-    {
-        *frase = (*frase) + 2;
-        frase++;
-    }
+  while (senha != '\0')
+  {
+    *senha = (*senha) + chave;
+    senha++;
+  }
 }

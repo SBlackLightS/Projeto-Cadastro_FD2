@@ -13,6 +13,6 @@
 #ifndef CRIPTO_H
 #define CRIPTO_H
 
-    void criptografa(char* frase);
+  void cifra_de_cesar(char* senha, int chave);
 
 #endif
