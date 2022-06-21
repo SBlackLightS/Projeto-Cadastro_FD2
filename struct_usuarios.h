@@ -1,7 +1,7 @@
 /**
  * @file struct_usuarios.h
  * @author Matheus Vanzela (matheusvanzela@alunos.utfpr.edu.br)
- *          Vitor Hugo L. A. de Oliveira (vitoroliveira.2021@alunos.utfpr.edu.br)
+ *         Vitor Hugo L. A. de Oliveira (vitoroliveira.2021@alunos.utfpr.edu.br)
  * @brief header para a struct contendo a struct para cadastro e login
  * @version 0.1
  * @date 14-06-2022

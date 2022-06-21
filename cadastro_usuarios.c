@@ -25,24 +25,52 @@ STRUCTs Cadastros usuarios
 
 
 int verifica_arquivo_cadastros (int* quantidade_usuarios) {
+  int tentativas = 0;
+  int opcao;
   FILE* arquivo = fopen("arquivo_cadastros.dat", "r+b");
+
+  do
+  {
+    if (arquivo == NULL)
+      tentativas++;
+
+    if (tentativas == 3) {
+      printf("Erro em encontrar arquivo com os cadastros.\n");
+      printf("Criar novo? (0 - SIM | 1 - NAO) R: ");
+      scanf("%d", &opcao);
+      setbuf(stdin,NULL);
+
+      if (opcao == 1)
+        break;
+      else {
+        limpa_tela();
+        printf("Erro para encontrar e ler arquivo de cadastros!\n");
+        printf("Encerando...");
+        printf("\n\n");
+        exit(1);
+      }//else
+    }//if tentativas
+  } while (tentativas < 3);
 
   if (arquivo == NULL) {
     arquivo = fopen("arquivo_cadastros.dat","wb");
     fwrite(*quantidade_usuarios, sizeof(int), 1, arquivo);
-    return 0;
+    fclose(arquivo);
+    return *quantidade_usuarios;
   }//caso o arquivo nao exista
 
-  else {
+  if (arquivo != NULL) {
     fread(*quantidade_usuarios, sizeof(int), 1, arquivo);
     if (*quantidade_usuarios < 0) {
       //MENSAGEM DE ERRO, BIPS, CORES ***********************************************************
       printf("Erro na leitura da quantidade de cadastros!!");
       printf("Encerando...");
       printf("\n\n");
+      fclose(arquivo);
       exit(1);
     }//caso a quantidade venha como lixo ou negativa
 
+    fclose(arquivo);
     return *quantidade_usuarios;
   }//caso o arquivo exista
 
@@ -95,16 +123,19 @@ void cadastro_usuarios(Cadastros* usuarios, int* quantidade_usuarios)
   int posicao_cadastro = -1;
   int erros = 0;
   int confirmacao;
+  FILE* arquivo;
   /* Declaracoes ============================== */
 
   limpa_tela();
+
+  *quantidade_usuarios = verifica_arquivo_cadastros (quantidade_usuarios);
 
   do {
     posicao_cadastro = encontra_posicao_vazia(usuarios, quantidade_usuarios);
 
     if (posicao_cadastro == -1) {
       usuarios = realoca_usuarios(usuarios,quantidade_usuarios);
-      erros ++;
+      erros++;
     }//if
 
     if (erros > 3) {
@@ -133,6 +164,7 @@ void cadastro_usuarios(Cadastros* usuarios, int* quantidade_usuarios)
     setbuf(stdin,NULL);
 
     //Recebe a cifra de cesar para criptografia
+    printf("Chave deve estar entre -64 e 5.\n");
     printf("Chave: ");
     scanf("%d", &usuarios[posicao_cadastro].chave);
     setbuf(stdin,NULL);
@@ -144,12 +176,30 @@ void cadastro_usuarios(Cadastros* usuarios, int* quantidade_usuarios)
     printf("Confirma (0 - NAO | 1 - SIM): ");
     scanf("%d", &confirmacao);
 
+    printf("\n\ncriptografando");
+
+    //escrever no arquivo, abrir a+b
+    arquivo = fopen ("arquivo_cadastros.dat", "ab");
+
+    if (arquivo == NULL) {
+      printf("Erro ao encontrar arquivo com cadastros!\n");
+      exit(1);
+    }//if
+
+    criptografa(usuarios[posicao_cadastro].senha_usuario, usuarios[posicao_cadastro].chave);
+
+    //escreve no arquivo (cadastra)
+    fwrite((usuarios+posicao_cadastro), sizeof(Cadastros), 1, arquivo);
+
+    for (int delay = 0; delay <= 600; delay += 200) {
+      //delay 200
+      printf(".");
+    }
     if (confirmacao != 1)
       limpa_tela();
     
   } while(confirmacao != 1);
 
-  //escrever no arquivo, abrir a+b
 
   printf("\n\n");
   printf("CADASTRADO! ");
@@ -161,3 +211,4 @@ void cadastro_usuarios(Cadastros* usuarios, int* quantidade_usuarios)
   limpa_tela();
 
   return;
+}//cadastro_usuarios

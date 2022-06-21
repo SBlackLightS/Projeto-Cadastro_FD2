@@ -1,7 +1,7 @@
 /**
  * @file structs.h
  * @author Matheus Vanzela (matheusvanzela@alunos.utfpr.edu.br)
- *          Vitor Hugo L. A. de Oliveira (vitoroliveira.2021@alunos.utfpr.edu.br)
+ *         Vitor Hugo L. A. de Oliveira (vitoroliveira.2021@alunos.utfpr.edu.br)
  * @brief Structs a serem utilizadas no projeto
  * @version 0.1
  * @date 13-06-20TAM_PADRAO

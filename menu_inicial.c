@@ -16,12 +16,12 @@
 #include "struct_usuarios.h"
 #include "cadastro_usuarios.h"
 
-void menu_inicial(Cadastros *usuarios)
+void menu_inicial(Cadastros *usuarios, int* quantidade_usuarios)
 {
   int opcao;
   int repete;
 
-  printf("Selecione uma op‡Æo:\n");
+  printf("Selecione uma opï¿½ï¿½o:\n");
   printf("1 - Cadastro\n");
   printf("2 - Login\n");
 
@@ -35,13 +35,13 @@ void menu_inicial(Cadastros *usuarios)
     {
       case 1:
         limpa_tela();
-        cadastro_usuarios(usuarios);
+        cadastro_usuarios(usuarios, quantidade_usuarios);
         repete = 1;
       break;
 
       case 2:
         limpa_tela();
-        login_usuarios(usuarios);
+        login_usuarios(usuarios, quantidade_usuarios);
       break;
 
       default:

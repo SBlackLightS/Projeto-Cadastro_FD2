@@ -1,7 +1,7 @@
 /**
  * @file submenu_pesquisar.c
  * @author Matheus Vanzela (matheusvanzela@alunos.utfpr.edu.br)
- *          Vitor Hugo L. A. de Oliveira (vitoroliveira.2021@alunos.utfpr.edu.br)
+ *         Vitor Hugo L. A. de Oliveira (vitoroliveira.2021@alunos.utfpr.edu.br)
  * @brief sumbenu para pesquisar pela marca ou celular
  * @version 0.1
  * @date 15-06-2022

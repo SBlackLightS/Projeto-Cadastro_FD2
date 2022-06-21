@@ -25,8 +25,6 @@ void main()
   Cadastros* usuarios;
   /* Declaracoes =============================================================== */
 
-  quantidade_usuarios = verifica_arquivo_cadastros(&quantidade_usuarios);
-
   menu_inicial(usuarios);
   
   return 0;
