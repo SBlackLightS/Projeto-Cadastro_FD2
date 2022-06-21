@@ -23,7 +23,10 @@ void main()
   /* Declaracoes: -------------------------------------------------------------- */
   int quantidade_usuarios = 0;
   Cadastros* usuarios;
+  Celular* celulares;
   /* Declaracoes =============================================================== */
+
+  quantidade_usuarios = verifica_arquivo_cadastros(&quantidade_usuarios);
 
   menu_inicial(usuarios);
   
